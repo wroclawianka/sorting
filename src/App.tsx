@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import  BubbleSorting from './components/BubbleSorting';
 
 interface State {
   list: Array<number>;
@@ -34,6 +35,9 @@ class App extends Component<Props, State> {
       <div className="App">
        <h1>Sorting Algorithms App</h1>
        <p>{this.state.list}</p>
+       <div>
+          <BubbleSorting list={this.state.list}></BubbleSorting>
+       </div>
       </div>
     );
   }
