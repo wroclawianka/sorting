@@ -11,7 +11,6 @@ interface Props {
 
 class App extends Component<Props, State> {
   public state: State;
-  // public props: Props;
   constructor(props : Props)  {
     super(props);
     this.state = {
