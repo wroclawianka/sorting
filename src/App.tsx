@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import BubbleSorting from './components/BubbleSorting';
-import SelectionSorting from './components/SelectionSorting';
-import InsertionSorting from './components/InsertionSorting';
+import BubbleSorting from './components/BubbleSorting/BubbleSorting';
+import SelectionSorting from './components/SelectionSorting/SelectionSorting';
+import InsertionSorting from './components/InsertionSorting/InsertionSorting';
 
 interface State {
   list: Array<number>;
