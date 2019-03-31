@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import posed, { PoseGroup } from 'react-pose';
+const Item = posed.li({});
 
 interface State {
     result: Array<number>,
-    steps: Array<any>
+    steps: Array<any>,
+    items: Array<number>
 }
 
 interface Props {
@@ -15,8 +18,21 @@ class BubbleSorting extends Component<Props, State> {
         super();
         this.state = {
             result: [],
-            steps: []
+            steps: [],
+            items: []
         }
+    }
+
+    showSteps(i) {
+        setTimeout(() => {
+            this.setState({
+                items: this.state.steps[i]
+            })
+            i++;
+            if (i < this.state.steps.length) {
+                this.showSteps(i);
+            }
+        }, 1000);
     }
 
     componentWillMount() {
@@ -36,17 +52,21 @@ class BubbleSorting extends Component<Props, State> {
             this.setState({
                 result: array,
                 steps: steps
-            })
+            }, () => { this.showSteps(0) })
         }
     }
 
     render() {
         return <div>
-            <h2>Bubble Sorting</h2>
+            <h2 className="font-weight-light mt-4">Bubble Sorting</h2>
             <ul>
-                {this.state.steps.map(function (step: []) {
-                    return <li>{step}</li>;
-                })}
+                <PoseGroup>
+                    {this.state.items.map(item =>
+                        <Item key={item} className="item">
+                            <span>{item}</span>
+                        </Item>
+                    )}
+                </PoseGroup>
             </ul>
         </div>
     }

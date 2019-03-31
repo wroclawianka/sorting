@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
-import './SelectionSorting.css';
 import posed, { PoseGroup } from 'react-pose';
 const Item = posed.li({});
 
 interface State {
     result: Array<number>,
-    steps: Array<Step>,
-    items: Array<any>
+    steps: Array<any>,
+    items: Array<number>
 }
 
 interface Props {
     list: Array<number>
 }
 
-interface Step {
-    label: string,
-    array: Array<number>,
-    accent: Array<number>
-}
 class SelectionSorting extends Component<Props, State> {
     public state: State;
     constructor() {
@@ -36,7 +30,7 @@ class SelectionSorting extends Component<Props, State> {
     showSteps(i) {
         setTimeout(() => {
             this.setState({
-                items: this.state.steps[i].array
+                items: this.state.steps[i]
             })
             i++;
             if (i < this.state.steps.length) {
@@ -47,23 +41,12 @@ class SelectionSorting extends Component<Props, State> {
 
     useSelectionSorting() {
         let array: Array<number> = [...this.props.list];
-        var startStep: Step = {
-            label: "Start",
-            array: [...array],
-            accent: []
-        };
-        var steps: Array<Step> = [
-            startStep
-        ];
+        var steps = [[...array]];
         for (var i = 0; i < array.length; i++) {
             let min = Math.min(...array.slice(i, array.length));
             let minIndex = array.indexOf(min);
             [array[i], array[minIndex]] = [array[minIndex], array[i]];
-            steps.push({
-                label: `Step ${i + 1}`,
-                array: [...array],
-                accent: [i, minIndex]
-            });
+            steps.push([...array]);
         }
         this.setState({
             result: array,
@@ -73,7 +56,7 @@ class SelectionSorting extends Component<Props, State> {
 
     render() {
         return <div>
-            <h2>Selection Sorting</h2>
+            <h2 className="font-weight-light mt-4">Selection Sorting</h2>
             <ul>
                 <PoseGroup>
                     {this.state.items.map(item =>

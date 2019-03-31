@@ -28,7 +28,7 @@ class App extends Component<Props, State> {
   }
 
   getDefaultList() {
-    const defaultList: Array<number> = [6, 5, 3, 1, 7, 8, 2, 4];
+    const defaultList: Array<number> = [6, 10, 5, 14, 3, 13, 9, 1, 17, 12, 15, 8, 2, 16, 11, 18, 4, 7];
     this.setState({
       list: defaultList
     });
@@ -41,12 +41,6 @@ class App extends Component<Props, State> {
             <Row className="justify-content-center">
               <Col className="col-md-7">
                 <h1 className="font-weight-light mt-4">Sorting Algorithms</h1>
-                <p className="lead">List of the elements</p>
-                <p className="lead">
-                  {this.state.list.map(function (element) {
-                    return <span className="list-element">{element}</span>
-                  })}
-                </p>
               </Col>
               </Row>
               <Row className="justify-content-center">
