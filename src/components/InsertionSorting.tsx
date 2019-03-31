@@ -24,7 +24,7 @@ class InserstionSorting extends Component<Props, State> {
     }
 
     useInsertionSorting() {
-        var array: Array<number> = this.props.list;
+        var array: Array<number> = [...this.props.list];
         var steps = [[...array]];
 
         for (var i = 0; i < array.length; i++) {

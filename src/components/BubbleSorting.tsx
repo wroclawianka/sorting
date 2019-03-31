@@ -24,7 +24,7 @@ class BubbleSorting extends Component<Props, State> {
     }
 
     useBubbleSorting() {
-        var array: Array<number> = this.props.list;
+        var array: Array<number> = [...this.props.list];
         var steps = [[...array]];
         for (var j = 0; j < array.length; j++) {
             for (var i = 0; i < array.length; i++) {
