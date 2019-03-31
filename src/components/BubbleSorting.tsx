@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { any } from 'prop-types';
 
 interface State {
     result: Array<number>,
