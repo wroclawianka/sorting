@@ -34,6 +34,7 @@ class App extends Component<Props, State> {
     return (
       <div className="App">
        <h1>Sorting Algorithms App</h1>
+       <h2>List of the elements:</h2>
        <p>{this.state.list}</p>
        <div>
           <BubbleSorting list={this.state.list}></BubbleSorting>
