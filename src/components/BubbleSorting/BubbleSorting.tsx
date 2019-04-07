@@ -5,7 +5,8 @@ const Item = posed.li({});
 interface State {
     result: Array<number>,
     steps: Array<any>,
-    items: Array<number>
+    items: Array<number>,
+    stepsCounter: number
 }
 
 interface Props {
@@ -19,14 +20,16 @@ class BubbleSorting extends Component<Props, State> {
         this.state = {
             result: [],
             steps: [],
-            items: []
+            items: [],
+            stepsCounter: 0
         }
     }
 
     showSteps(i) {
         setTimeout(() => {
             this.setState({
-                items: this.state.steps[i]
+                items: this.state.steps[i],
+                stepsCounter: i+1
             })
             i++;
             if (i < this.state.steps.length) {
