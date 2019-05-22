@@ -45,11 +45,11 @@ class BubbleSorting extends Component<Props, State> {
     }
 
     useBubbleSorting() {
-        var array: Array<number> = [...this.props.list];
-        var steps = [[...array]];
-        var sortedArray = [...array].sort();
-        for (var j = 0; j < array.length; j++) {
-            for (var i = 0; i < array.length; i++) {
+        const array: Array<number> = [...this.props.list];
+        let steps = [[...array]];
+        let sortedArray = [...array].sort();
+        for (let j = 0; j < array.length; j++) {
+            for (let i = 0; i < array.length; i++) {
                 if (JSON.stringify(array) !== JSON.stringify(sortedArray)) {
                     if (array[i] > array[i + 1]) {
                         [array[i], array[i + 1]] = [array[i + 1], array[i]];
