@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import posed, { PoseGroup } from 'react-pose';
+import React, {Component} from 'react';
+import posed, {PoseGroup} from 'react-pose';
+
 const Item = posed.li({});
 
 interface State {
@@ -15,6 +16,7 @@ interface Props {
 
 class InserstionSorting extends Component<Props, State> {
     public state: State;
+
     constructor() {
         super();
         this.state = {
@@ -62,7 +64,9 @@ class InserstionSorting extends Component<Props, State> {
         this.setState({
             result: array,
             steps: steps
-        }, () => { this.showSteps(0)})
+        }, () => {
+            this.showSteps(0)
+        })
     }
 
     render() {

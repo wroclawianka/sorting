@@ -24,7 +24,7 @@ class BubbleSorting extends Component<Props, State> {
             steps: [],
             items: [],
             stepsCounter: 0
-    }
+        }
     }
 
     showSteps(i) {
