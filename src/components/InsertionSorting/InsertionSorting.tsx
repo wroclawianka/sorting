@@ -5,7 +5,8 @@ const Item = posed.li({});
 interface State {
     result: Array<number>,
     steps: Array<any>,
-    items: Array<number>
+    items: Array<number>,
+    stepsCounter: number
 }
 
 interface Props {
@@ -19,7 +20,8 @@ class InserstionSorting extends Component<Props, State> {
         this.state = {
             result: [],
             steps: [],
-            items: []
+            items: [],
+            stepsCounter: 0
         }
     }
 
@@ -28,10 +30,10 @@ class InserstionSorting extends Component<Props, State> {
     }
 
     showSteps(i) {
-        debugger;
         setTimeout(() => {
             this.setState({
-                items: this.state.steps[i]
+                items: this.state.steps[i],
+                stepsCounter: i
             })
             i++;
             if (i < this.state.steps.length) {
@@ -66,6 +68,7 @@ class InserstionSorting extends Component<Props, State> {
     render() {
         return <div>
             <h2 className="font-weight-light mt-4">Insertion Sorting</h2>
+            <span className="counter">{this.state.stepsCounter}</span>
             <ul>
                 <PoseGroup>
                     {this.state.items.map(item =>

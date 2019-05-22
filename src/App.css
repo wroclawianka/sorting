@@ -32,3 +32,13 @@ body {
     font-size: 370%;
     color: darkgrey;
   }
+
+.counter {
+  height: 20px;
+  width: 20px;
+  font-size: 13px;
+  color: darkgrey;
+  background-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+}

@@ -24,7 +24,7 @@ class BubbleSorting extends Component<Props, State> {
             steps: [],
             items: [],
             stepsCounter: 0
-        }
+    }
     }
 
     showSteps(i) {
@@ -68,7 +68,8 @@ class BubbleSorting extends Component<Props, State> {
 
     render() {
         return <div>
-            <h2 className="font-weight-light mt-4">Bubble Sorting {this.state.stepsCounter}</h2>
+            <h2 className="font-weight-light mt-4">Bubble Sorting</h2>
+            <span className="counter">{this.state.stepsCounter}</span>
             <ul>
                 <PoseGroup>
                     {this.state.items.map(item =>
