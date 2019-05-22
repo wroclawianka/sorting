@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import posed, { PoseGroup } from 'react-pose';
+import React, {Component} from 'react';
+import posed, {PoseGroup} from 'react-pose';
+
 const Item = posed.li({});
 
 interface State {
@@ -15,6 +16,7 @@ interface Props {
 
 class BubbleSorting extends Component<Props, State> {
     state: State;
+
     constructor() {
         super();
         this.state = {
@@ -48,17 +50,19 @@ class BubbleSorting extends Component<Props, State> {
         var sortedArray = [...array].sort();
         for (var j = 0; j < array.length; j++) {
             for (var i = 0; i < array.length; i++) {
-                if(JSON.stringify(array) !== JSON.stringify(sortedArray)){
+                if (JSON.stringify(array) !== JSON.stringify(sortedArray)) {
                     if (array[i] > array[i + 1]) {
                         [array[i], array[i + 1]] = [array[i + 1], array[i]];
                     }
                     steps.push([...array]);
-               }
+                }
             }
             this.setState({
                 result: array,
                 steps: steps
-            }, () => { this.showSteps(0) })
+            }, () => {
+                this.showSteps(0)
+            })
         }
     }
 
