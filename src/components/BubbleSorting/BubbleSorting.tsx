@@ -14,7 +14,7 @@ interface Props {
 }
 
 class BubbleSorting extends Component<Props, State> {
-    public state: State;
+    state: State;
     constructor() {
         super();
         this.state = {
