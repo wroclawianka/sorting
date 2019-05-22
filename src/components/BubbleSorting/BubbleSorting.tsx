@@ -29,8 +29,8 @@ class BubbleSorting extends Component<Props, State> {
         setTimeout(() => {
             this.setState({
                 items: this.state.steps[i],
-                stepsCounter: i+1
-            })
+                stepsCounter: i
+            });
             i++;
             if (i < this.state.steps.length) {
                 this.showSteps(i);
