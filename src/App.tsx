@@ -29,7 +29,7 @@ class App extends Component<Props, State> {
     }
 
     getDefaultList() {
-        const defaultList: Array<number> = [6, 10, 5, 14, 3, 13, 9, 1, 17, 12, 15, 8, 2, 16, 11, 18, 4, 7];
+        const defaultList: Array<number> = [3, 6, 4, 5, 2, 1]; //[6, 10, 5, 14, 3, 13 9, 1, 17, 12, 15, 8, 2, 16, 11, 18, 4, 7];
         this.setState({
             list: defaultList
         });
@@ -47,9 +47,9 @@ class App extends Component<Props, State> {
                     <Row className="justify-content-center">
                         <BubbleSorting list={this.state.list}></BubbleSorting>
                     </Row>
-                    <Row className="justify-content-center">
-                        <SelectionSorting list={this.state.list}></SelectionSorting>
-                    </Row>
+                    {/*<Row className="justify-content-center">*/}
+                    {/*    <SelectionSorting list={this.state.list}></SelectionSorting>*/}
+                    {/*</Row>*/}
                     <Row className="justify-content-center">
                         <InsertionSorting list={this.state.list}></InsertionSorting>
                     </Row>

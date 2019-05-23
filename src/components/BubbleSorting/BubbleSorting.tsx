@@ -68,6 +68,8 @@ class BubbleSorting extends Component<Props, State> {
                     steps.push([...array]);
                 }
             }
+            comparedElements.pop();
+            comparedElements.push([-1, -1]);
             this.setState({
                 result: array,
                 steps: steps,
