@@ -47,12 +47,12 @@ class App extends Component<Props, State> {
                     <Row className="justify-content-center">
                         <BubbleSorting list={this.state.list}></BubbleSorting>
                     </Row>
-                    {/*<Row className="justify-content-center">*/}
-                    {/*    <SelectionSorting list={this.state.list}></SelectionSorting>*/}
-                    {/*</Row>*/}
                     <Row className="justify-content-center">
-                        <InsertionSorting list={this.state.list}></InsertionSorting>
+                        <SelectionSorting list={this.state.list}></SelectionSorting>
                     </Row>
+                    <Row className="justify-content-center">
+                    <InsertionSorting list={this.state.list}></InsertionSorting>
+                </Row>
                 </Container>
             </div>
         );
