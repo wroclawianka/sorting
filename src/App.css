@@ -35,6 +35,9 @@ li.item > span {
     color: darkgrey;
 }
 
+li.accented > span {
+    color: #0062E6
+}
 .counter {
     height: 20px;
     width: 20px;
