@@ -26,10 +26,10 @@ class SelectionSorting extends Component<Props, State> {
     }
 
     componentWillMount() {
-        this.useSelectionSorting()
+        this.sort()
     }
 
-    useSelectionSorting() {
+    sort() {
         let array: Array<number> = [...this.props.list];
         let steps = [[...array]];
         let comparedElements: Array<Array<number>> = [[0, 0]];

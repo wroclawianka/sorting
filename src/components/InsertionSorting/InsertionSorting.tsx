@@ -26,10 +26,10 @@ class IntersectionSorting extends Component<Props, State> {
     }
 
     componentWillMount() {
-        this.useInsertionSorting()
+        this.sort()
     }
 
-    useInsertionSorting() {
+    sort() {
         let array: Array<number> = [...this.props.list];
         let steps = [[...array]];
         let comparedElements : Array<Array<number>> = [[0,0]];
