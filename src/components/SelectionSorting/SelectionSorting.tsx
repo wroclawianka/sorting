@@ -30,9 +30,9 @@ class SelectionSorting extends Component<Props, State> {
 
     useSelectionSorting() {
         let array: Array<number> = [...this.props.list];
-        var steps = [[...array]];
-        let comparedElements : Array<Array<number>> = [[0,0]];
-        for (var i = 0; i < array.length; i++) {
+        let steps = [[...array]];
+        let comparedElements: Array<Array<number>> = [[0, 0]];
+        for (let i = 0; i < array.length; i++) {
             let min = Math.min(...array.slice(i, array.length));
             let minIndex = array.indexOf(min);
             comparedElements.push([array[i], array[minIndex]]);
