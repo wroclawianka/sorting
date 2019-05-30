@@ -26,10 +26,10 @@ class BubbleSorting extends Component<Props, State> {
     }
 
     componentWillMount() {
-        this.useBubbleSorting()
+        this.sort()
     }
 
-    useBubbleSorting() {
+    sort() {
         const array: Array<number> = [...this.props.list];
         let steps = [[...array]];
         let sortedArray = [...array].sort();

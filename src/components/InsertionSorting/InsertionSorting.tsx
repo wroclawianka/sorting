@@ -12,7 +12,7 @@ interface Props {
     list: Array<number>
 }
 
-class InserstionSorting extends Component<Props, State> {
+class IntersectionSorting extends Component<Props, State> {
     public state: State;
 
     constructor() {
@@ -26,20 +26,20 @@ class InserstionSorting extends Component<Props, State> {
     }
 
     componentWillMount() {
-        this.useInsertionSorting()
+        this.sort()
     }
 
-    useInsertionSorting() {
-        var array: Array<number> = [...this.props.list];
-        var steps = [[...array]];
+    sort() {
+        let array: Array<number> = [...this.props.list];
+        let steps = [[...array]];
         let comparedElements : Array<Array<number>> = [[0,0]];
-        for (var i = 0; i < array.length; i++) {
-            for (var j = 1; j < array.length; j++) {
-                for (var x = j; x > i; x--) {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 1; j < array.length; j++) {
+                for (let x = j; x > i; x--) {
                     if (array[i] > array[x]) {
                         comparedElements.push([array[i],array[x]]);
-                        var value = array[x];
-                        var index = array.indexOf(array[x]);
+                        let value = array[x];
+                        let index = array.indexOf(array[x]);
                         array.splice(index, 1);
                         array.splice(i, 0, value);
                         steps.push([...array])
@@ -67,4 +67,4 @@ class InserstionSorting extends Component<Props, State> {
     }
 }
 
-export default InserstionSorting;
+export default IntersectionSorting;
