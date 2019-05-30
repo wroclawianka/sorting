@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import SortingDisplay from "../SortingDisplay/SortingDisplay";
 
 interface State {
@@ -14,13 +14,14 @@ interface Props {
 
 class SelectionSorting extends Component<Props, State> {
     public state: State;
+
     constructor() {
         super();
         this.state = {
             result: [],
             steps: [],
             items: [],
-            comparedElements : [],
+            comparedElements: [],
         }
     }
 
