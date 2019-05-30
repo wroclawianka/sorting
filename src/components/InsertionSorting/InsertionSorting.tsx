@@ -12,7 +12,7 @@ interface Props {
     list: Array<number>
 }
 
-class InserstionSorting extends Component<Props, State> {
+class IntersectionSorting extends Component<Props, State> {
     public state: State;
 
     constructor() {
@@ -67,4 +67,4 @@ class InserstionSorting extends Component<Props, State> {
     }
 }
 
-export default InserstionSorting;
+export default IntersectionSorting;
