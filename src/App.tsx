@@ -53,7 +53,9 @@ class App extends Component<Props, State> {
                     <Row className="justify-content-center">
                         <button
                             type="button"
-                            className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>Start</button>
+                            className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
+                            {this.state.display ?  "Stop" : "Start"}
+                        </button>
                     </Row>
                     {this.state.display ?
                         <SortingListDisplay list ={this.state.list}></SortingListDisplay>
