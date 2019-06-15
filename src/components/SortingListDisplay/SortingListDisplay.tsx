@@ -8,22 +8,36 @@ interface State {
 }
 
 interface Props {
-    list: Array<number>
+    list: Array<number>,
+    algorithms: Array<algorithm>
+}
+
+interface algorithm {
+    label: string,
+    value: Object
 }
 
 class SortingListDisplay extends Component<Props, State> {
+    selectComponent = (option) => {
+        switch (option) {
+            case 'bubble':
+                return <BubbleSorting list={this.props.list}/>;
+            case 'insertion':
+                return <InsertionSorting list={this.props.list}/>;
+            case 'selection':
+                return <SelectionSorting list={this.props.list}/>;
+            default:
+                return;
+        }
+    };
 
     render() {
         return <div>
-            <Row className="justify-content-center">
-                <BubbleSorting list={this.props.list}/>
-            </Row>
-            <Row className="justify-content-center">
-                <SelectionSorting list={this.props.list}/>
-            </Row>
-            <Row className="justify-content-center">
-                <InsertionSorting list={this.props.list}/>
-            </Row>
+            {this.props.algorithms.map((algorithm) => {
+                return (<Row key={algorithm.label} className="justify-content-center">
+                    {this.selectComponent(algorithm.value)}
+                </Row>)
+            })}
         </div>
     }
 }
