@@ -47,3 +47,8 @@ li.accented > span {
     border-radius: 50%;
     display: inline-block;
 }
+
+.start-button {
+    margin-top: 15px;
+    background-color: #000000;
+}

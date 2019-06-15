@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import BubbleSorting from './components/SortingListDisplay/BubbleSorting/BubbleSorting';
-import SelectionSorting from './components/SortingListDisplay/SelectionSorting/SelectionSorting';
-import InsertionSorting from './components/SortingListDisplay/InsertionSorting/InsertionSorting';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
 
 interface State {
     list: Array<number>;
+    display: boolean;
 }
 
 interface Props {
@@ -20,7 +19,8 @@ class App extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            list: []
+            list: [],
+            display: false
         }
     }
 
@@ -35,6 +35,12 @@ class App extends Component<Props, State> {
         });
     }
 
+    displayVisualization = () => {
+        this.setState({
+            display: !this.state.display
+        })
+    };
+
     render() {
         return (
             <div>
@@ -45,14 +51,13 @@ class App extends Component<Props, State> {
                         </Col>
                     </Row>
                     <Row className="justify-content-center">
-                        <BubbleSorting list={this.state.list}/>
+                        <button
+                            type="button"
+                            className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>Start</button>
                     </Row>
-                    <Row className="justify-content-center">
-                        <SelectionSorting list={this.state.list}/>
-                    </Row>
-                    <Row className="justify-content-center">
-                        <InsertionSorting list={this.state.list}/>
-                    </Row>
+                    {this.state.display ?
+                        <SortingListDisplay list ={this.state.list}></SortingListDisplay>
+                        : null}
                 </Container>
             </div>
         );
