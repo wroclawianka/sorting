@@ -78,16 +78,21 @@ class App extends Component<Props, State> {
                                 onChange={this.selectAlgorithms}
                                 options={algorithms}
                                 isMulti={true}
+                                placeholder={"Select algorithms to display"}
+                                isDisabled={this.state.display}
                             />
                         </div>
                     </Row>
-                    <Row className="justify-content-center">
-                        <button
-                            type="button"
-                            className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
-                            {this.state.display ? "Stop" : "Start"}
-                        </button>
-                    </Row>
+                    {this.state.selectedAlgorithms === null ?
+                        null :
+                        <Row className="justify-content-center">
+                            <button
+                                type="button"
+                                className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
+                                {this.state.display ? "Stop" : "Start"}
+                            </button>
+                        </Row>
+                    }
                     {this.state.display ?
                         <SortingListDisplay
                             list={this.state.list}
