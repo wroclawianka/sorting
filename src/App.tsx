@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import BubbleSorting from './components/BubbleSorting/BubbleSorting';
-import SelectionSorting from './components/SelectionSorting/SelectionSorting';
-import InsertionSorting from './components/InsertionSorting/InsertionSorting';
+import BubbleSorting from './components/SortingListDisplay/BubbleSorting/BubbleSorting';
+import SelectionSorting from './components/SortingListDisplay/SelectionSorting/SelectionSorting';
+import InsertionSorting from './components/SortingListDisplay/InsertionSorting/InsertionSorting';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
