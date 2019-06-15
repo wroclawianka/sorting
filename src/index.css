@@ -10,3 +10,13 @@ body {
 .list-element {
     margin: 0 10px;
 }
+
+.algorithms-selector{
+    margin: 0 auto;
+    padding: 15px;
+    min-height: 70px;
+}
+
+.algorithms-selector > div {
+    min-width: 350px;
+}
