@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Header from "./components/Header/Header";
-import AlgorithmsSelector from "./components/UserPanel/AlgorithmsSelector/AlgorithmsSelector";
-import LengthSelector from "./components/UserPanel/LengthSelector/LengthSelector";
-import StartButton from "./components/UserPanel/StartButton/StartButton";
+import UserPanel from "./components/UserPanel/UserPanel";
 import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
 
 const algorithms = [
@@ -81,31 +78,14 @@ class App extends Component<Props, State> {
             <div>
                 <Container className="text-center" id="page-content">
                     <Header/>
-                    <Row className="justify-content-center">
-                        <div className="user-panel">
-                            <AlgorithmsSelector
-                                selectedAlgorithms={this.state.selectedAlgorithms}
-                                selectAlgorithms={this.selectAlgorithms}
-                                algorithms={algorithms}
-                                display={this.state.display}
-                            />
-                            <LengthSelector
-                                decreaseLength={this.decreaseLength}
-                                increaseLength={this.increaseLength}
-                                display={this.state.display}
-                                length={this.state.length}
-                            />
-                            <div className="buttons">
-                                {this.state.selectedAlgorithms === null ?
-                                    null :
-                                    <StartButton
-                                        display={this.state.display}
-                                        displayVisualization={this.displayVisualization}
-                                    />
-                                }
-                            </div>
-                        </div>
-                    </Row>
+                    <UserPanel selectAlgorithms={this.selectAlgorithms}
+                               selectedAlgorithms={this.state.selectedAlgorithms}
+                               algorithms={algorithms}
+                               display={this.state.display}
+                               decreaseLength={this.decreaseLength}
+                               increaseLength={this.increaseLength}
+                               length={this.state.length}
+                               displayVisualization={this.displayVisualization}/>
                     {this.state.display ?
                         <SortingListDisplay
                             list={this.state.list}
