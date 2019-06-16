@@ -21,6 +21,7 @@ interface State {
     list: Array<number>;
     display: boolean;
     selectedAlgorithms: Array<algorithm>;
+    length: number
 }
 
 interface Props {
@@ -34,32 +35,43 @@ class App extends Component<Props, State> {
         this.state = {
             list: [],
             display: false,
-            selectedAlgorithms: []
+            selectedAlgorithms: [],
+            length: 14
         }
     }
 
     componentWillMount() {
-        this.getDefaultList();
         this.setState({
             selectedAlgorithms: algorithms.slice(0, 3)
         });
     }
 
-    getDefaultList() {
-        const defaultList: Array<number> = [6, 10, 5, 14, 3, 13, 9, 1, 17, 12, 15, 8, 2, 16, 11, 18, 4, 7];
-        this.setState({
-            list: defaultList
-        });
+    getDefaultList = () => {
+        let defaultList: Array<number> = [];
+        for (let i = 1; i <= this.state.length; i++) {
+            defaultList.push(i);
+        }
+        return defaultList.sort(() => 0.5 - Math.random());
     }
 
     displayVisualization = () => {
         this.setState({
-            display: !this.state.display
-        })
+            display: !this.state.display,
+            list: this.getDefaultList()
+        });
+
     };
 
     selectAlgorithms = (selectedAlgorithms) => {
         this.setState({selectedAlgorithms});
+    };
+
+    decreaseLength = () => {
+        this.setState({length: this.state.length - 1});
+    };
+
+    increaseLength = () => {
+        this.setState({length: this.state.length + 1});
     };
 
     render() {
@@ -71,28 +83,42 @@ class App extends Component<Props, State> {
                             <h1 className="font-weight-light mt-4">Sorting Algorithms</h1>
                         </Col>
                     </Row>
-                    <Row>
-                        <div className="algorithms-selector">
-                            <Select
-                                value={this.state.selectedAlgorithms}
-                                onChange={this.selectAlgorithms}
-                                options={algorithms}
-                                isMulti={true}
-                                placeholder={"Select algorithms to display"}
-                                isDisabled={this.state.display}
-                            />
+                    <Row className="justify-content-center">
+                        <div className="user-panel">
+                            <div className="algorithms-selector">
+                                <label>Algorithms to visualize</label>
+                                <Select
+                                    value={this.state.selectedAlgorithms}
+                                    onChange={this.selectAlgorithms}
+                                    options={algorithms}
+                                    isMulti={true}
+                                    placeholder={"Select algorithms to display"}
+                                    isDisabled={this.state.display}
+                                />
+                            </div>
+                            <div className="length-selector">
+                                <label>Length of the array</label>
+                                <div className="def-number-input number-input">
+                                    <button onClick={this.decreaseLength} className="minus" disabled={this.state.display}/>
+                                    <input className="quantity" name="quantity" value={this.state.length}
+                                           onChange={() => console.log('change')}
+                                           type="number"/>
+                                    <button onClick={this.increaseLength} className="plus" disabled={this.state.display}/>
+                                </div>
+                            </div>
+                            <div className="buttons">
+                                {this.state.selectedAlgorithms === null ?
+                                    null :
+
+                                    <button
+                                        type="button"
+                                        className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
+                                        {this.state.display ? "Stop" : "Start"}
+                                    </button>
+                                }
+                            </div>
                         </div>
                     </Row>
-                    {this.state.selectedAlgorithms === null ?
-                        null :
-                        <Row className="justify-content-center">
-                            <button
-                                type="button"
-                                className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
-                                {this.state.display ? "Stop" : "Start"}
-                            </button>
-                        </Row>
-                    }
                     {this.state.display ?
                         <SortingListDisplay
                             list={this.state.list}
