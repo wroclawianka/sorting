@@ -18,6 +18,20 @@ body {
     padding-top: 20px;
 }
 
+.selectors > label {
+    font-size: 50%;
+}
+
+.buttons {
+    position: relative;
+    margin-left: 20px;
+}
+
+.start-button {
+    position: absolute;
+    bottom: 0;
+}
+
 .algorithms-selector{
     padding: 0 15px;
 }

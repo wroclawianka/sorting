@@ -85,6 +85,7 @@ class App extends Component<Props, State> {
                     </Row>
                     <Row className="selectors">
                         <div className="algorithms-selector">
+                            <label>Algorithms to visualize</label>
                             <Select
                                 value={this.state.selectedAlgorithms}
                                 onChange={this.selectAlgorithms}
@@ -94,9 +95,8 @@ class App extends Component<Props, State> {
                                 isDisabled={this.state.display}
                             />
                         </div>
-                    </Row>
-                    <Row className="selectors">
                         <div className="length-selector">
+                            <label>Length of the array</label>
                             <div className="def-number-input number-input">
                                 <button onClick={this.decreaseLength} className="minus" disabled={this.state.display}/>
                                 <input className="quantity" name="quantity" value={this.state.length}
@@ -105,17 +105,18 @@ class App extends Component<Props, State> {
                                 <button onClick={this.increaseLength} className="plus" disabled={this.state.display}/>
                             </div>
                         </div>
+                        <div className="buttons">
+                            {this.state.selectedAlgorithms === null ?
+                                null :
+
+                                <button
+                                    type="button"
+                                    className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
+                                    {this.state.display ? "Stop" : "Start"}
+                                </button>
+                            }
+                        </div>
                     </Row>
-                    {this.state.selectedAlgorithms === null ?
-                        null :
-                        <Row className="justify-content-center">
-                            <button
-                                type="button"
-                                className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
-                                {this.state.display ? "Stop" : "Start"}
-                            </button>
-                        </Row>
-                    }
                     {this.state.display ?
                         <SortingListDisplay
                             list={this.state.list}
