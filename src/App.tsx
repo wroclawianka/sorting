@@ -36,7 +36,7 @@ class App extends Component<Props, State> {
             list: [],
             display: false,
             selectedAlgorithms: [],
-            length: 14
+            length: 18
         }
     }
 
