@@ -4,6 +4,7 @@ import LengthSelector from "./LengthSelector/LengthSelector";
 import StartButton from "./StartButton/StartButton";
 import Row from "react-bootstrap/Row";
 import Algorithm from '../../interfaces/Algoritm'
+import './UserPanel.css'
 
 interface State {
 }

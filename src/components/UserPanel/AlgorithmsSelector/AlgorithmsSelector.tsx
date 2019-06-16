@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Select from 'react-select';
 import Algorithm from '../../../interfaces/Algoritm'
+import './AlgorithmsSelector.css'
 
 interface State {
 }

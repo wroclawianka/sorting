@@ -1,0 +1,16 @@
+.user-panel {
+    display: grid;
+    grid-template-columns: 5fr 2fr 1fr;
+    justify-content: center;
+    min-height: 40px;
+    padding-top: 20px;
+}
+
+.buttons {
+    position: relative;
+}
+
+.start-button {
+    position: absolute;
+    bottom: 0;
+}
