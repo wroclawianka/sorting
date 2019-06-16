@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Header from "./components/Header/Header";
 import UserPanel from "./components/UserPanel/UserPanel";
 import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
-import algorithm from './interfaces/algoritm'
+import Algorithm from './interfaces/Algoritm'
 
 const algorithms = [
     {value: 'bubble', label: 'Bubble'},
@@ -15,7 +15,7 @@ const algorithms = [
 interface State {
     list: Array<number>;
     display: boolean;
-    selectedAlgorithms: Array<algorithm>;
+    selectedAlgorithms: Array<Algorithm>;
     length: number
 }
 

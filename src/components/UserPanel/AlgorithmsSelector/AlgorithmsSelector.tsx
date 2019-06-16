@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import Select from 'react-select';
-import algorithm from '../../../interfaces/algoritm'
+import Algorithm from '../../../interfaces/Algoritm'
 
 interface State {
 }
 
 interface Props {
     selectAlgorithms;
-    selectedAlgorithms: Array<algorithm>;
-    algorithms: Array<algorithm>
+    selectedAlgorithms: Array<Algorithm>;
+    algorithms: Array<Algorithm>
     display: boolean
 }
 

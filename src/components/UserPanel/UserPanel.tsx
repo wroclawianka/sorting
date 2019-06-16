@@ -3,15 +3,15 @@ import AlgorithmsSelector from "./AlgorithmsSelector/AlgorithmsSelector";
 import LengthSelector from "./LengthSelector/LengthSelector";
 import StartButton from "./StartButton/StartButton";
 import Row from "react-bootstrap/Row";
-import algorithm from '../../interfaces/algoritm'
+import Algorithm from '../../interfaces/Algoritm'
 
 interface State {
 }
 
 interface Props {
     selectAlgorithms;
-    selectedAlgorithms: Array<algorithm>;
-    algorithms: Array<algorithm>
+    selectedAlgorithms: Array<Algorithm>;
+    algorithms: Array<Algorithm>
     display: boolean,
     decreaseLength;
     increaseLength;
