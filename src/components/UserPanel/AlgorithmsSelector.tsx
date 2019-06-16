@@ -5,10 +5,15 @@ interface State {
 }
 
 interface Props {
-    selectedAlgorithms,
-    selectAlgorithms
-    algorithms
-    display
+    selectAlgorithms;
+    selectedAlgorithms: Array<algorithm>;
+    algorithms: Array<algorithm>
+    display: boolean
+}
+
+interface algorithm {
+    label: string,
+    value: Object
 }
 
 class AlgorithmsSelector extends Component<Props, State> {
