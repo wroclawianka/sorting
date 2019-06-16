@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Select from 'react-select';
+import Header from "./components/Header/Header";
 import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
 
 const algorithms = [
@@ -78,11 +78,7 @@ class App extends Component<Props, State> {
         return (
             <div>
                 <Container className="text-center" id="page-content">
-                    <Row className="justify-content-center">
-                        <Col className="col-md-7">
-                            <h1 className="font-weight-light mt-4">Sorting Algorithms</h1>
-                        </Col>
-                    </Row>
+                    <Header/>
                     <Row className="justify-content-center">
                         <div className="user-panel">
                             <div className="algorithms-selector">
