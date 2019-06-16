@@ -47,11 +47,11 @@ class App extends Component<Props, State> {
     }
 
     getList = () => {
-        let defaultList: Array<number> = [];
+        let list: Array<number> = [];
         for (let i = 1; i <= this.state.length; i++) {
-            defaultList.push(i);
+            list.push(i);
         }
-        return defaultList.sort(() => 0.5 - Math.random());
+        return list.sort(() => 0.5 - Math.random());
     };
 
     displayVisualization = () => {
