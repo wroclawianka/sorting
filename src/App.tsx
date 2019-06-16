@@ -83,38 +83,40 @@ class App extends Component<Props, State> {
                             <h1 className="font-weight-light mt-4">Sorting Algorithms</h1>
                         </Col>
                     </Row>
-                    <Row className="selectors">
-                        <div className="algorithms-selector">
-                            <label>Algorithms to visualize</label>
-                            <Select
-                                value={this.state.selectedAlgorithms}
-                                onChange={this.selectAlgorithms}
-                                options={algorithms}
-                                isMulti={true}
-                                placeholder={"Select algorithms to display"}
-                                isDisabled={this.state.display}
-                            />
-                        </div>
-                        <div className="length-selector">
-                            <label>Length of the array</label>
-                            <div className="def-number-input number-input">
-                                <button onClick={this.decreaseLength} className="minus" disabled={this.state.display}/>
-                                <input className="quantity" name="quantity" value={this.state.length}
-                                       onChange={() => console.log('change')}
-                                       type="number"/>
-                                <button onClick={this.increaseLength} className="plus" disabled={this.state.display}/>
+                    <Row className="justify-content-center">
+                        <div className="user-panel">
+                            <div className="algorithms-selector">
+                                <label>Algorithms to visualize</label>
+                                <Select
+                                    value={this.state.selectedAlgorithms}
+                                    onChange={this.selectAlgorithms}
+                                    options={algorithms}
+                                    isMulti={true}
+                                    placeholder={"Select algorithms to display"}
+                                    isDisabled={this.state.display}
+                                />
                             </div>
-                        </div>
-                        <div className="buttons">
-                            {this.state.selectedAlgorithms === null ?
-                                null :
+                            <div className="length-selector">
+                                <label>Length of the array</label>
+                                <div className="def-number-input number-input">
+                                    <button onClick={this.decreaseLength} className="minus" disabled={this.state.display}/>
+                                    <input className="quantity" name="quantity" value={this.state.length}
+                                           onChange={() => console.log('change')}
+                                           type="number"/>
+                                    <button onClick={this.increaseLength} className="plus" disabled={this.state.display}/>
+                                </div>
+                            </div>
+                            <div className="buttons">
+                                {this.state.selectedAlgorithms === null ?
+                                    null :
 
-                                <button
-                                    type="button"
-                                    className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
-                                    {this.state.display ? "Stop" : "Start"}
-                                </button>
-                            }
+                                    <button
+                                        type="button"
+                                        className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
+                                        {this.state.display ? "Stop" : "Start"}
+                                    </button>
+                                }
+                            </div>
                         </div>
                     </Row>
                     {this.state.display ?

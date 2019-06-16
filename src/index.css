@@ -11,20 +11,16 @@ body {
     margin: 0 10px;
 }
 
-.selectors {
-    display: flex;
+.user-panel {
+    display: grid;
+    grid-template-columns: 5fr 2fr 1fr;
     justify-content: center;
     min-height: 40px;
     padding-top: 20px;
 }
 
-.selectors > label {
-    font-size: 50%;
-}
-
 .buttons {
     position: relative;
-    margin-left: 20px;
 }
 
 .start-button {
