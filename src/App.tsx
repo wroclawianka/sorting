@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Select from 'react-select';
 import Header from "./components/Header/Header";
+import StartButton from "./components/UserPanel/StartButton";
 import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
 
 const algorithms = [
@@ -105,12 +106,10 @@ class App extends Component<Props, State> {
                             <div className="buttons">
                                 {this.state.selectedAlgorithms === null ?
                                     null :
-
-                                    <button
-                                        type="button"
-                                        className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
-                                        {this.state.display ? "Stop" : "Start"}
-                                    </button>
+                                    <StartButton
+                                        display={this.state.display}
+                                        displayVisualization={this.displayVisualization}
+                                    />
                                 }
                             </div>
                         </div>
