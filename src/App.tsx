@@ -3,9 +3,9 @@ import './App.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Header from "./components/Header/Header";
-import AlgorithmsSelector from "./components/UserPanel/AlgorithmsSelector";
-import LengthSelector from "./components/UserPanel/LengthSelector";
-import StartButton from "./components/UserPanel/StartButton";
+import AlgorithmsSelector from "./components/UserPanel/AlgorithmsSelector/AlgorithmsSelector";
+import LengthSelector from "./components/UserPanel/LengthSelector/LengthSelector";
+import StartButton from "./components/UserPanel/StartButton/StartButton";
 import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
 
 const algorithms = [
