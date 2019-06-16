@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Select from 'react-select';
 import Header from "./components/Header/Header";
+import AlgorithmsSelector from "./components/UserPanel/AlgorithmsSelector";
 import StartButton from "./components/UserPanel/StartButton";
 import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
 
@@ -82,17 +82,13 @@ class App extends Component<Props, State> {
                     <Header/>
                     <Row className="justify-content-center">
                         <div className="user-panel">
-                            <div className="algorithms-selector">
-                                <label>Algorithms to visualize</label>
-                                <Select
-                                    value={this.state.selectedAlgorithms}
-                                    onChange={this.selectAlgorithms}
-                                    options={algorithms}
-                                    isMulti={true}
-                                    placeholder={"Select algorithms to display"}
-                                    isDisabled={this.state.display}
-                                />
-                            </div>
+                            <AlgorithmsSelector
+                                selectedAlgorithms={this.state.selectedAlgorithms}
+                                selectAlgorithms={this.selectAlgorithms}
+                                algorithms={algorithms}
+                                display={this.state.display}
+                            />
+                            {/*Length selector*/}
                             <div className="length-selector">
                                 <label>Length of the array</label>
                                 <div className="def-number-input number-input">
