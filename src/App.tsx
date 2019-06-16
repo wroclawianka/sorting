@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Header from "./components/Header/Header";
 import AlgorithmsSelector from "./components/UserPanel/AlgorithmsSelector";
+import LengthSelector from "./components/UserPanel/LengthSelector";
 import StartButton from "./components/UserPanel/StartButton";
 import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
 
@@ -88,17 +89,12 @@ class App extends Component<Props, State> {
                                 algorithms={algorithms}
                                 display={this.state.display}
                             />
-                            {/*Length selector*/}
-                            <div className="length-selector">
-                                <label>Length of the array</label>
-                                <div className="def-number-input number-input">
-                                    <button onClick={this.decreaseLength} className="minus" disabled={this.state.display}/>
-                                    <input className="quantity" name="quantity" value={this.state.length}
-                                           onChange={() => console.log('change')}
-                                           type="number"/>
-                                    <button onClick={this.increaseLength} className="plus" disabled={this.state.display}/>
-                                </div>
-                            </div>
+                            <LengthSelector
+                                decreaseLength={this.decreaseLength}
+                                increaseLength={this.increaseLength}
+                                display={this.state.display}
+                                length={this.state.length}
+                            />
                             <div className="buttons">
                                 {this.state.selectedAlgorithms === null ?
                                     null :
@@ -118,7 +114,8 @@ class App extends Component<Props, State> {
                         : null}
                 </Container>
             </div>
-        );
+        )
+            ;
     }
 }
 
