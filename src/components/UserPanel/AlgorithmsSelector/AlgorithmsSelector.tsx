@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Select from 'react-select';
+import algorithm from '../../../interfaces/algoritm'
 
 interface State {
 }
@@ -9,11 +10,6 @@ interface Props {
     selectedAlgorithms: Array<algorithm>;
     algorithms: Array<algorithm>
     display: boolean
-}
-
-interface algorithm {
-    label: string,
-    value: Object
 }
 
 class AlgorithmsSelector extends Component<Props, State> {

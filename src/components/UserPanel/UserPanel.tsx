@@ -3,6 +3,7 @@ import AlgorithmsSelector from "./AlgorithmsSelector/AlgorithmsSelector";
 import LengthSelector from "./LengthSelector/LengthSelector";
 import StartButton from "./StartButton/StartButton";
 import Row from "react-bootstrap/Row";
+import algorithm from '../../interfaces/algoritm'
 
 interface State {
 }
@@ -16,11 +17,6 @@ interface Props {
     increaseLength;
     length: number
     displayVisualization;
-}
-
-interface algorithm {
-    label: string,
-    value: Object
 }
 
 class UserPanel extends Component<Props, State> {
