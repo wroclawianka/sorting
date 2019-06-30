@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './App.css';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Select from 'react-select';
+import Header from "./components/Header/Header";
+import UserPanel from "./components/UserPanel/UserPanel";
 import SortingListDisplay from "./components/SortingListDisplay/SortingListDisplay";
+import Algorithm from './interfaces/Algoritm'
 
 const algorithms = [
     {value: 'bubble', label: 'Bubble'},
@@ -12,15 +12,10 @@ const algorithms = [
     {value: 'selection', label: 'Selection'},
 ];
 
-interface algorithm {
-    label: string,
-    value: Object
-}
-
 interface State {
     list: Array<number>;
     display: boolean;
-    selectedAlgorithms: Array<algorithm>;
+    selectedAlgorithms: Array<Algorithm>;
     length: number
 }
 
@@ -36,7 +31,7 @@ class App extends Component<Props, State> {
             list: [],
             display: false,
             selectedAlgorithms: [],
-            length: 14
+            length: 18
         }
     }
 
@@ -46,18 +41,18 @@ class App extends Component<Props, State> {
         });
     }
 
-    getDefaultList = () => {
-        let defaultList: Array<number> = [];
+    getList = () => {
+        let list: Array<number> = [];
         for (let i = 1; i <= this.state.length; i++) {
-            defaultList.push(i);
+            list.push(i);
         }
-        return defaultList.sort(() => 0.5 - Math.random());
-    }
+        return list.sort(() => 0.5 - Math.random());
+    };
 
     displayVisualization = () => {
         this.setState({
             display: !this.state.display,
-            list: this.getDefaultList()
+            list: this.getList()
         });
 
     };
@@ -78,47 +73,15 @@ class App extends Component<Props, State> {
         return (
             <div>
                 <Container className="text-center" id="page-content">
-                    <Row className="justify-content-center">
-                        <Col className="col-md-7">
-                            <h1 className="font-weight-light mt-4">Sorting Algorithms</h1>
-                        </Col>
-                    </Row>
-                    <Row className="justify-content-center">
-                        <div className="user-panel">
-                            <div className="algorithms-selector">
-                                <label>Algorithms to visualize</label>
-                                <Select
-                                    value={this.state.selectedAlgorithms}
-                                    onChange={this.selectAlgorithms}
-                                    options={algorithms}
-                                    isMulti={true}
-                                    placeholder={"Select algorithms to display"}
-                                    isDisabled={this.state.display}
-                                />
-                            </div>
-                            <div className="length-selector">
-                                <label>Length of the array</label>
-                                <div className="def-number-input number-input">
-                                    <button onClick={this.decreaseLength} className="minus" disabled={this.state.display}/>
-                                    <input className="quantity" name="quantity" value={this.state.length}
-                                           onChange={() => console.log('change')}
-                                           type="number"/>
-                                    <button onClick={this.increaseLength} className="plus" disabled={this.state.display}/>
-                                </div>
-                            </div>
-                            <div className="buttons">
-                                {this.state.selectedAlgorithms === null ?
-                                    null :
-
-                                    <button
-                                        type="button"
-                                        className="btn btn-light btn-lg start-button" onClick={this.displayVisualization}>
-                                        {this.state.display ? "Stop" : "Start"}
-                                    </button>
-                                }
-                            </div>
-                        </div>
-                    </Row>
+                    <Header/>
+                    <UserPanel selectAlgorithms={this.selectAlgorithms}
+                               selectedAlgorithms={this.state.selectedAlgorithms}
+                               algorithms={algorithms}
+                               display={this.state.display}
+                               decreaseLength={this.decreaseLength}
+                               increaseLength={this.increaseLength}
+                               length={this.state.length}
+                               displayVisualization={this.displayVisualization}/>
                     {this.state.display ?
                         <SortingListDisplay
                             list={this.state.list}
@@ -127,7 +90,8 @@ class App extends Component<Props, State> {
                         : null}
                 </Container>
             </div>
-        );
+        )
+            ;
     }
 }
 

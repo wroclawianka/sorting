@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import posed, {PoseGroup} from 'react-pose';
+import './SortingDisplay.css'
 
 const Item = posed.li({});
 

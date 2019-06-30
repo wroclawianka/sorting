@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import SortingDisplay from '../SortingDisplay/SortingDisplay';
-
-interface State {
-    result: Array<number>,
-    steps: Array<any>,
-    items: Array<number>,
-    comparedElements: Array<Array<number>>,
-}
+import State from '../interfaces/State'
 
 interface Props {
     list: Array<number>

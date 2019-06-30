@@ -1,0 +1,7 @@
+.algorithms-selector{
+    padding: 0 15px;
+}
+
+.algorithms-selector > div {
+    min-width: 350px;
+}
